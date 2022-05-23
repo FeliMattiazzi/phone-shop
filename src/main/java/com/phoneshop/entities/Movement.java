@@ -1,0 +1,29 @@
+package com.phoneshop.entities;
+
+import com.phoneshop.models.Supply;
+
+import javax.persistence.*;
+import java.util.Set;
+
+@Entity
+public class Movement {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @OneToMany
+    private Set<Supply> supplies;
+
+    @ManyToOne
+    private Warehouse warehouse;
+
+    @ManyToOne
+    private Lab lab;
+
+    @ManyToOne
+    private Depository depository;
+
+    private Integer partsQuantity;
+
+}
