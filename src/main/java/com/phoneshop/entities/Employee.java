@@ -1,7 +1,6 @@
 package com.phoneshop.entities;
 
 import com.phoneshop.models.User;
-
 import javax.persistence.*;
 
 @Entity

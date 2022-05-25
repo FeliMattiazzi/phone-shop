@@ -1,9 +1,11 @@
 package com.phoneshop.models;
 
 import com.phoneshop.entities.Depository;
+import lombok.Data;
 
 import javax.persistence.*;
 
+@Data
 @Entity
 @Table(name = "SUPPLIES")
 public class Supply {
