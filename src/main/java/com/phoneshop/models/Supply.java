@@ -5,6 +5,7 @@ import com.phoneshop.entities.Depository;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "SUPPLIES")
 public class Supply {
 
     @Id
@@ -14,13 +15,11 @@ public class Supply {
     @ManyToOne
     private Depository depository;
 
-    private Long codPart;
     private String description;
     private Boolean usable;
     private Boolean critical;
 
-    public Supply(Long codPart, String description, Depository depository, Boolean usable, Boolean critical) {
-        this.codPart = codPart;
+    public Supply(String description, Depository depository, Boolean usable, Boolean critical) {
         this.description = description;
         this.depository = depository;
         this.usable = usable;

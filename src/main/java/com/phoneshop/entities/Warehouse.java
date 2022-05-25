@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+@Table(name = "WAREHOUSES")
 public class Warehouse extends Workplace {
 
     @Id
