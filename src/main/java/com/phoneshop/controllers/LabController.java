@@ -91,7 +91,7 @@ public class LabController {
     @DeleteMapping(value = {"/api/labs", "/api/labs/"})
     public ResponseEntity<Lab> deleteAll() {
 
-        log.info("All labs have been deleted");
+        log.info("Deleting all labs...");
         labRepository.deleteAll();
         return ResponseEntity.noContent().build();
 

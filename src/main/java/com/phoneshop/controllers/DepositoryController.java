@@ -89,7 +89,7 @@ public class DepositoryController {
     @DeleteMapping(value = {"/api/depositories", "/api/depositories/"})
     public ResponseEntity<Depository> deleteAll() {
 
-        log.info("All depositories deleted");
+        log.info("Deleting all depositories...");
         depositoryRepository.deleteAll();
         return ResponseEntity.noContent().build();
 
