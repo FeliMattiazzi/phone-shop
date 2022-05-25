@@ -41,7 +41,7 @@ public class LabController {
 
         if (lab.getLabId() != null){
 
-            log.warn("Trying to create a log with id");
+            log.warn("Trying to create a lab with id");
             return ResponseEntity.badRequest().build();
 
         }
@@ -51,7 +51,7 @@ public class LabController {
 
     }
 
-    @PutMapping(value = {"/api/labs/{book}", "/api/labs/{book}"})
+    @PutMapping(value = {"/api/labs/{lab}", "/api/labs/{lab}"})
     public ResponseEntity<Lab> update(@RequestBody Lab lab) {
 
         if (lab.getLabId() == null) {
@@ -74,7 +74,7 @@ public class LabController {
     }
 
     @DeleteMapping(value = {"/api/labs/{id}", "/api/labs/{id}/"})
-    public ResponseEntity<Lab> delete(@PathVariable Long id){
+    public ResponseEntity<Lab> deleteById(@PathVariable Long id){
 
         if(!labRepository.existsById(id)) {
 
