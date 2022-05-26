@@ -17,6 +17,7 @@ public class User {
     private Workplace workplace;
 
     private String fullName;
+    private UserRole userRole;
 
     public User(Workplace workplace, String fullName) {
         this.workplace = workplace;
