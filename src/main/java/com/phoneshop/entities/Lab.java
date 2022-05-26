@@ -1,6 +1,5 @@
 package com.phoneshop.entities;
 
-import com.phoneshop.models.User;
 import com.phoneshop.models.Workplace;
 import lombok.Getter;
 

@@ -1,4 +1,4 @@
-package com.phoneshop.models;
+package com.phoneshop.enums;
 
 public enum UserRole {
     MANAGER,

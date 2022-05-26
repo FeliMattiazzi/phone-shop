@@ -1,5 +1,7 @@
-package com.phoneshop.models;
+package com.phoneshop.entities;
 
+import com.phoneshop.enums.UserRole;
+import com.phoneshop.models.Workplace;
 import lombok.*;
 
 import javax.persistence.*;
@@ -17,6 +19,8 @@ public class User {
     private Workplace workplace;
 
     private String fullName;
+
+    @Enumerated(value = EnumType.STRING)
     private UserRole userRole;
 
     public User(Workplace workplace, String fullName) {

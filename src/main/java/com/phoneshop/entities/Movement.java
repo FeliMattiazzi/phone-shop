@@ -1,6 +1,5 @@
 package com.phoneshop.entities;
 
-import com.phoneshop.models.Supply;
 import lombok.Getter;
 
 import javax.persistence.*;

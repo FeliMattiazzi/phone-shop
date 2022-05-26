@@ -1,4 +1,4 @@
-package com.phoneshop.models;
+package com.phoneshop.entities;
 
 import com.phoneshop.entities.Depository;
 import lombok.Data;

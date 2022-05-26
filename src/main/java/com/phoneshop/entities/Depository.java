@@ -1,16 +1,14 @@
 package com.phoneshop.entities;
 
-import com.phoneshop.models.Place;
-import com.phoneshop.models.Supply;
 import lombok.Getter;
 
 import javax.persistence.*;
 import java.util.Set;
 
+
+@Entity @Table(name = "DEPOSITORIES")
 @Getter
-@Entity
-@Table(name = "DEPOSITORIES")
-public class Depository extends Place {
+public class Depository {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

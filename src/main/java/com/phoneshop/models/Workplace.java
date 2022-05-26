@@ -1,4 +1,5 @@
 package com.phoneshop.models;
+import com.phoneshop.entities.User;
 import lombok.Data;
 import javax.persistence.*;
 import java.util.Set;
