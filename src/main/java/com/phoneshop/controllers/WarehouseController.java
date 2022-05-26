@@ -2,8 +2,7 @@ package com.phoneshop.controllers;
 
 import com.phoneshop.entities.Warehouse;
 import com.phoneshop.repositories.WarehouseRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,9 +10,9 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@Slf4j
 public class WarehouseController {
 
-    private final Logger log = (Logger) LoggerFactory.getLogger(LabController.class);
     private final WarehouseRepository warehouseRepository;
 
     public WarehouseController(WarehouseRepository warehouseRepository) {

@@ -2,8 +2,7 @@ package com.phoneshop.controllers;
 
 import com.phoneshop.entities.Depository;
 import com.phoneshop.repositories.DepositoryRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,18 +10,18 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@Slf4j
 public class DepositoryController {
 
     private final DepositoryRepository depositoryRepository;
-    private final Logger log = (Logger) LoggerFactory.getLogger(LabController.class);
 
     public DepositoryController(DepositoryRepository depositoryRepository) {
         this.depositoryRepository = depositoryRepository;
     }
 
     @GetMapping(value = {"/api/depositories", "/api/depositories/"})
-    public List<Depository> findAll() {
-        return depositoryRepository.findAll();
+    public ResponseEntity<List<Depository>> findAll() {
+        return ResponseEntity.ok().body(depositoryRepository.findAll());
     }
 
     @GetMapping(value = {"/api/depositories/{id}", "/api/depositories/{id}/"})
