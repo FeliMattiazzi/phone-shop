@@ -35,7 +35,7 @@ public class EmployeeController {
                 : ResponseEntity.notFound().build();
     }
 
-    @PostMapping(value = {"/api/employees/{employee}", "/api/employees/{employee}/"})
+    @PostMapping(value = {"/api/employees", "/api/employees/"})
     public ResponseEntity<Employee> create(@RequestBody Employee employee){
 
         if(employee.getEmployeeId() != null) {
@@ -50,7 +50,7 @@ public class EmployeeController {
 
     }
 
-    @PutMapping(value = {"/api/employees/{employee}", "/api/employees/{employee}/"})
+    @PutMapping(value = {"/api/employees", "/api/employees/"})
     public ResponseEntity<Employee> update(@RequestBody Employee employee) {
 
         if (employee.getEmployeeId() == null) {

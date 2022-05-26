@@ -35,7 +35,7 @@ public class DepositoryController {
 
     }
 
-    @PostMapping(value = {"/api/depositories/{depository}", "/api/depositories/{depository}/"})
+    @PostMapping(value = {"/api/depositories", "/api/depositories/"})
     public ResponseEntity<Depository> create(@PathVariable Depository depository){
 
         if(depository.getDepositoryId() != null) {
@@ -50,7 +50,7 @@ public class DepositoryController {
 
     }
 
-    @PutMapping(value = {"/api/depositories/{depository}", "/api/depositories/{depositories}/"})
+    @PutMapping(value = {"/api/depositories", "/api/depositories/"})
     public ResponseEntity<Depository> update(@RequestBody Depository depository) {
 
         if (depository.getDepositoryId() == null) {

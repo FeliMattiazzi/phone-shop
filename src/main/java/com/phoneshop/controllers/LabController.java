@@ -36,7 +36,7 @@ public class LabController {
 
     }
 
-    @PostMapping(value = {"/api/labs/{lab}", "/api/labs/{lab}/"})
+    @PostMapping(value = {"/api/labs", "/api/labs/"})
     public ResponseEntity<Lab> create(@RequestBody Lab lab){
 
         if (lab.getLabId() != null){
@@ -51,7 +51,7 @@ public class LabController {
 
     }
 
-    @PutMapping(value = {"/api/labs/{lab}", "/api/labs/{lab}"})
+    @PutMapping(value = {"/api/labs", "/api/labs/"})
     public ResponseEntity<Lab> update(@RequestBody Lab lab) {
 
         if (lab.getLabId() == null) {

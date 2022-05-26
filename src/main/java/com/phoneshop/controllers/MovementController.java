@@ -36,7 +36,7 @@ public class MovementController {
 
     }
 
-    @PostMapping(value = {"/api/movements/{movement}", "/api/movements/{movement}/"})
+    @PostMapping(value = {"/api/movements", "/api/movements/"})
     public ResponseEntity<Movement> create(@RequestBody Movement movement) {
 
         if (movement.getMovementId() != null) {

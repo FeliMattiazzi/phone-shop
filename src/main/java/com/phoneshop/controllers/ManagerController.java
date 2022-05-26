@@ -36,7 +36,7 @@ public class ManagerController {
 
     }
 
-    @PostMapping(value = {"/api/managers/{manager}", "/api/managers/{manager}/"})
+    @PostMapping(value = {"/api/managers", "/api/managers/"})
     public ResponseEntity<Manager> create(@RequestBody Manager manager) {
 
         if(manager.getManagerId() != null) {
@@ -51,7 +51,7 @@ public class ManagerController {
 
     }
 
-    @PutMapping(value = {"/api/managers/{manager}", "/api/managers/{manager}/"})
+    @PutMapping(value = {"/api/managers", "/api/managers/"})
     public ResponseEntity<Manager> update(@RequestBody Manager manager) {
 
         if (manager.getManagerId() == null) {

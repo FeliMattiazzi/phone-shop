@@ -36,8 +36,7 @@ public class WarehouseController {
 
     }
 
-    @PostMapping(value = {"/api/warehouses/{warehouse}",
-            "/api/warehouses/{warehouse}/"})
+    @PostMapping(value = {"/api/warehouses", "/api/warehouses/"})
     public ResponseEntity<Warehouse> create(@RequestBody Warehouse warehouse) {
 
         if (warehouse.getWarehouseId() != null) {
@@ -52,8 +51,7 @@ public class WarehouseController {
 
     }
 
-    @PutMapping(value = {"/api/warehouses/{warehouse}",
-            "/api/warehouses/{warehouse}/"})
+    @PutMapping(value = {"/api/warehouses","/api/warehouses/"})
     public ResponseEntity<Warehouse> update(@RequestBody Warehouse warehouse) {
 
         if (warehouse.getWarehouseId() == null) {
