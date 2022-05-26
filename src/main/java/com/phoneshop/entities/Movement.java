@@ -1,12 +1,12 @@
 package com.phoneshop.entities;
 
 import com.phoneshop.models.Supply;
-import lombok.Data;
+import lombok.Getter;
 
 import javax.persistence.*;
 import java.util.Set;
 
-@Data
+@Getter
 @Entity
 @Table(name = "MOVEMENTS")
 public class Movement {

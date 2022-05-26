@@ -1,12 +1,12 @@
 package com.phoneshop.entities;
 
 import com.phoneshop.models.Workplace;
-import lombok.Data;
+import lombok.Getter;
 
 import javax.persistence.*;
 import java.util.Set;
 
-@Data
+@Getter
 @Entity
 @Table(name = "WAREHOUSES")
 public class Warehouse extends Workplace {

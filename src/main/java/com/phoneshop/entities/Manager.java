@@ -1,11 +1,11 @@
 package com.phoneshop.entities;
 
 import com.phoneshop.models.User;
-import lombok.Data;
+import lombok.Getter;
 
 import javax.persistence.*;
 
-@Data
+@Getter
 @Entity
 @Table(name = "MANAGERS")
 public class Manager extends User {

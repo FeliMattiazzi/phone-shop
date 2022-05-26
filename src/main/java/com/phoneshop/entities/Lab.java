@@ -2,12 +2,12 @@ package com.phoneshop.entities;
 
 import com.phoneshop.models.User;
 import com.phoneshop.models.Workplace;
-import lombok.Data;
+import lombok.Getter;
 
 import javax.persistence.*;
 import java.util.Set;
 
-@Data
+@Getter
 @Entity
 @Table(name = "LABS")
 public class Lab extends Workplace {
