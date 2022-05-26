@@ -13,7 +13,7 @@ public class Movement {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long movementId;
 
     @OneToMany
     private Set<Supply> supplies;
