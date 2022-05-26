@@ -39,7 +39,7 @@ public class EmployeeController {
     @PostMapping(value = {"/api/employees/{employee}", "/api/employees/{employee}/"})
     public ResponseEntity<Employee> create(@RequestBody Employee employee){
 
-        if(employee.getUserId() != null) {
+        if(employee.getEmployeeId() != null) {
 
             log.warn("Trying to create am employee with id");
             return ResponseEntity.badRequest().build();
@@ -54,7 +54,7 @@ public class EmployeeController {
     @PutMapping(value = {"/api/employees/{employee}", "/api/employees/{employee}/"})
     public ResponseEntity<Employee> update(@RequestBody Employee employee) {
 
-        if (employee.getUserId() == null) {
+        if (employee.getEmployeeId() == null) {
 
             log.warn("Trying to update a employee without id");
             return ResponseEntity.badRequest().build();
