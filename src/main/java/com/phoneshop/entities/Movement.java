@@ -24,4 +24,11 @@ public class Movement {
 
     private Integer partsQuantity;
 
+    public Movement(Set<Supply> supplies, Warehouse warehouse, Lab lab, Integer partsQuantity) {
+        this.supplies = supplies;
+        this.warehouse = warehouse;
+        this.lab = lab;
+        this.partsQuantity = partsQuantity;
+    }
+
 }

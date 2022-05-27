@@ -19,4 +19,9 @@ public class Depository {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "depository")
     private Set<Supply> supplies;
 
+    public Depository(Warehouse warehouse, Set<Supply> supplies) {
+        this.warehouse = warehouse;
+        this.supplies = supplies;
+    }
+
 }
