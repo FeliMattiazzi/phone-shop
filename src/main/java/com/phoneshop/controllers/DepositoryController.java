@@ -36,7 +36,7 @@ public class DepositoryController {
     }
 
     @PostMapping
-    public ResponseEntity<Depository> create(@PathVariable Depository depository){
+    public ResponseEntity<Depository> create(@RequestBody Depository depository){
 
         if(depository.getDepositoryId() != null) {
 
