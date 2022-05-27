@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RestController
 @Slf4j
+@RestController
+@RequestMapping(value = {"/api/movements", "/api/movements/"})
 public class MovementController {
 
     private final MovementRepository movementRepository;
@@ -19,12 +20,12 @@ public class MovementController {
         this.movementRepository = movementRepository;
     }
 
-    @GetMapping(value = {"/api/movements", "/api/movements/"})
+    @GetMapping
     public ResponseEntity<List<Movement>> findAll() {
         return ResponseEntity.ok().body(movementRepository.findAll());
     }
 
-    @GetMapping(value = {"/api/movements/{id}", "/api/movements/{id}/"})
+    @GetMapping(value = {"/{id}", "/{id}/"})
     public ResponseEntity<Movement> findById(@PathVariable Long id) {
 
         Optional<Movement> movementOpt = movementRepository.findById(id);
@@ -35,7 +36,7 @@ public class MovementController {
 
     }
 
-    @PostMapping(value = {"/api/movements", "/api/movements/"})
+    @PostMapping
     public ResponseEntity<Movement> create(@RequestBody Movement movement) {
 
         if (movement.getMovementId() != null) {
@@ -50,7 +51,7 @@ public class MovementController {
 
     }
 
-    @PutMapping(value = {"/api/movements/{movement}", "/api/movements/{movement}/"})
+    @PutMapping
     public ResponseEntity<Movement> update(@RequestBody Movement movement) {
 
         if (movement.getMovementId() == null) {
@@ -72,7 +73,7 @@ public class MovementController {
 
     }
 
-    @DeleteMapping(value = {"/api/movements/{id}", "/api/movements/{id}/"})
+    @DeleteMapping(value = {"/{id}", "/{id}/"})
     public ResponseEntity<Movement> deleteById(@PathVariable Long id) {
 
         if (!movementRepository.existsById(id)) {
@@ -87,7 +88,7 @@ public class MovementController {
 
     }
 
-    @DeleteMapping(value = {"/api/movements", "/api/movements/"})
+    @DeleteMapping
     public ResponseEntity<Movement> deleteAll() {
 
         log.info("Deleting all movements...");

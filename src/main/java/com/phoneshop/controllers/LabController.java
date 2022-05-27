@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RestController
+
 @Slf4j
+@RestController
+@RequestMapping(value = {"/api/labs", "/api/labs/"})
 public class LabController {
 
     private final LabRepository labRepository;
@@ -19,12 +21,12 @@ public class LabController {
         this.labRepository = labRepository;
     }
 
-    @GetMapping(value = {"/api/labs", "/api/labs/"})
+    @GetMapping
     public ResponseEntity<List<Lab>> findAll() {
         return ResponseEntity.ok().body(labRepository.findAll());
     }
 
-    @GetMapping(value = {"/api/labs/{id}", "/api/labs/{id}/"})
+    @GetMapping(value = {"/{id}", "/{id}/"})
     public ResponseEntity<Lab> findById(@PathVariable Long id) {
 
         Optional<Lab> labOpt = labRepository.findById(id);
@@ -35,7 +37,7 @@ public class LabController {
 
     }
 
-    @PostMapping(value = {"/api/labs", "/api/labs/"})
+    @PostMapping
     public ResponseEntity<Lab> create(@RequestBody Lab lab){
 
         if (lab.getLabId() != null){
@@ -50,7 +52,7 @@ public class LabController {
 
     }
 
-    @PutMapping(value = {"/api/labs", "/api/labs/"})
+    @PutMapping
     public ResponseEntity<Lab> update(@RequestBody Lab lab) {
 
         if (lab.getLabId() == null) {
@@ -72,7 +74,7 @@ public class LabController {
 
     }
 
-    @DeleteMapping(value = {"/api/labs/{id}", "/api/labs/{id}/"})
+    @DeleteMapping(value = {"/{id}", "/{id}/"})
     public ResponseEntity<Lab> deleteById(@PathVariable Long id){
 
         if(!labRepository.existsById(id)) {
@@ -87,7 +89,7 @@ public class LabController {
 
     }
 
-    @DeleteMapping(value = {"/api/labs", "/api/labs/"})
+    @DeleteMapping
     public ResponseEntity<Lab> deleteAll() {
 
         log.info("Deleting all labs...");

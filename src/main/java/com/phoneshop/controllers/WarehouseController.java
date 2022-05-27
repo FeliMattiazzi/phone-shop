@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RestController
 @Slf4j
+@RestController
+@RequestMapping(value = {"/api/warehouses", "/api/warehouses/"})
 public class WarehouseController {
 
     private final WarehouseRepository warehouseRepository;
@@ -19,12 +20,12 @@ public class WarehouseController {
         this.warehouseRepository = warehouseRepository;
     }
 
-    @GetMapping(value = {"/api/warehouses", "/api/warehouses/"})
+    @GetMapping
     public ResponseEntity<List<Warehouse>> findAll() {
         return ResponseEntity.ok().body(warehouseRepository.findAll());
     }
 
-    @GetMapping(value = {"/api/warehouses/{id}", "/api/warehouses/{id}/"})
+    @GetMapping(value = {"/{id}", "/{id}/"})
     public ResponseEntity<Warehouse> findById(@PathVariable Long id) {
 
         Optional<Warehouse> warehouseOpt = warehouseRepository.findById(id);
@@ -35,7 +36,7 @@ public class WarehouseController {
 
     }
 
-    @PostMapping(value = {"/api/warehouses", "/api/warehouses/"})
+    @PostMapping
     public ResponseEntity<Warehouse> create(@RequestBody Warehouse warehouse) {
 
         if (warehouse.getWarehouseId() != null) {
@@ -50,7 +51,7 @@ public class WarehouseController {
 
     }
 
-    @PutMapping(value = {"/api/warehouses","/api/warehouses/"})
+    @PutMapping
     public ResponseEntity<Warehouse> update(@RequestBody Warehouse warehouse) {
 
         if (warehouse.getWarehouseId() == null) {
@@ -72,7 +73,7 @@ public class WarehouseController {
 
     }
 
-    @DeleteMapping(value = {"/api/warehouses/{id}", "/api/warehouses/{id}/"})
+    @DeleteMapping(value = {"/{id}", "/{id}/"})
     public ResponseEntity<Warehouse> deleteById(@PathVariable Long id) {
 
         if (!warehouseRepository.existsById(id)) {
@@ -87,7 +88,7 @@ public class WarehouseController {
 
     }
 
-    @DeleteMapping(value = {"/api/warehouses", "/api/warehouses/"})
+    @DeleteMapping
     public ResponseEntity<Warehouse> deleteAll() {
 
         log.info("Deleting all warehouses...");

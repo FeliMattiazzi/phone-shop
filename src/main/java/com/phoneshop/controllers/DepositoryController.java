@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RestController
 @Slf4j
+@RestController
+@RequestMapping(value = {"/api/depositories", "/api/depositories/"})
 public class DepositoryController {
 
     private final DepositoryRepository depositoryRepository;
@@ -19,12 +20,12 @@ public class DepositoryController {
         this.depositoryRepository = depositoryRepository;
     }
 
-    @GetMapping(value = {"/api/depositories", "/api/depositories/"})
+    @GetMapping
     public ResponseEntity<List<Depository>> findAll() {
         return ResponseEntity.ok().body(depositoryRepository.findAll());
     }
 
-    @GetMapping(value = {"/api/depositories/{id}", "/api/depositories/{id}/"})
+    @GetMapping(value = {"/{id}", "/{id}/"})
     public ResponseEntity<Depository> findById(@PathVariable Long id) {
 
         Optional<Depository> depositoryOpt = depositoryRepository.findById(id);
@@ -34,7 +35,7 @@ public class DepositoryController {
 
     }
 
-    @PostMapping(value = {"/api/depositories", "/api/depositories/"})
+    @PostMapping
     public ResponseEntity<Depository> create(@PathVariable Depository depository){
 
         if(depository.getDepositoryId() != null) {
@@ -49,7 +50,7 @@ public class DepositoryController {
 
     }
 
-    @PutMapping(value = {"/api/depositories", "/api/depositories/"})
+    @PutMapping
     public ResponseEntity<Depository> update(@RequestBody Depository depository) {
 
         if (depository.getDepositoryId() == null) {
@@ -71,7 +72,7 @@ public class DepositoryController {
 
     }
 
-    @DeleteMapping(value = {"/api/depositories/{id}", "/api/depositories/{id}/"})
+    @DeleteMapping(value = {"/{id}", "/{id}/"})
     public ResponseEntity<Depository> deleteById(@PathVariable Long id) {
 
         if (!depositoryRepository.existsById(id)) {
@@ -84,7 +85,7 @@ public class DepositoryController {
 
     }
 
-    @DeleteMapping(value = {"/api/depositories", "/api/depositories/"})
+    @DeleteMapping
     public ResponseEntity<Depository> deleteAll() {
 
         log.info("Deleting all depositories...");
