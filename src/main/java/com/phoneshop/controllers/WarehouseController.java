@@ -20,8 +20,8 @@ public class WarehouseController {
     }
 
     @GetMapping(value = {"/api/warehouses", "/api/warehouses/"})
-    public List<Warehouse> findAll() {
-        return warehouseRepository.findAll();
+    public ResponseEntity<List<Warehouse>> findAll() {
+        return ResponseEntity.ok().body(warehouseRepository.findAll());
     }
 
     @GetMapping(value = {"/api/warehouses/{id}", "/api/warehouses/{id}/"})

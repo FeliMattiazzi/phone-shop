@@ -20,8 +20,8 @@ public class LabController {
     }
 
     @GetMapping(value = {"/api/labs", "/api/labs/"})
-    public List<Lab> findAll() {
-        return labRepository.findAll();
+    public ResponseEntity<List<Lab>> findAll() {
+        return ResponseEntity.ok().body(labRepository.findAll());
     }
 
     @GetMapping(value = {"/api/labs/{id}", "/api/labs/{id}/"})

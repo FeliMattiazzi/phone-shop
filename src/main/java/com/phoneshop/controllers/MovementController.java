@@ -20,8 +20,8 @@ public class MovementController {
     }
 
     @GetMapping(value = {"/api/movements", "/api/movements/"})
-    public List<Movement> findAll() {
-        return movementRepository.findAll();
+    public ResponseEntity<List<Movement>> findAll() {
+        return ResponseEntity.ok().body(movementRepository.findAll());
     }
 
     @GetMapping(value = {"/api/movements/{id}", "/api/movements/{id}/"})
