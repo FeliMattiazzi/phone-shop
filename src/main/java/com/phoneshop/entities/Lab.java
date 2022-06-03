@@ -10,12 +10,14 @@ import java.util.Set;
 @Getter @NoArgsConstructor
 public class Lab{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long labId;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "lab")
     private Set<Movement> movements;
+
+    @ManyToOne
+    private Warehouse warehouse;
 
     private String address;
     private String description;
@@ -30,4 +32,5 @@ public class Lab{
         this.address = address;
         this.description = description;
     }
+
 }
