@@ -10,28 +10,24 @@ import java.util.Set;
 @Getter @NoArgsConstructor
 public class Warehouse{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long warehouseId;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "warehouse")
     private Set<Depository> depositories;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "warehouse")
-    private Set<Movement> movements;
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "warehouse")
+    private Set<Lab> labs;
 
     private String address;
-    private String description;
 
-    public Warehouse(String address, String description) {
+    public Warehouse(String address) {
         this.address = address;
-        this.description = description;
     }
 
-    public Warehouse(Set<Depository> depositories, Set<Movement> movements, String address, String description) {
+    public Warehouse(Set<Depository> depositories, Set<Lab> labs, String address) {
         this.depositories = depositories;
-        this.movements = movements;
+        this.labs = labs;
         this.address = address;
-        this.description = description;
     }
 }

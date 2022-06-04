@@ -1,6 +1,5 @@
 package com.phoneshop.entities;
 
-import com.phoneshop.enums.SupplyType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -13,27 +12,40 @@ public class Supply {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long supplyId;
 
-    @Enumerated(value = EnumType.STRING)
-    private SupplyType supplyType;
-
     @ManyToOne
     private Depository depository;
 
-    private String description;
+    private String supplyName;
     private Boolean critical;
+    private Integer quantity;
 
+    public Supply(String supplyName, Boolean critical, Integer quantity) {
+        this.supplyName = supplyName;
+        this.critical = critical;
+        this.quantity = quantity;
+    }
 
-    public Supply(SupplyType supplyType, String description, Boolean critical) {
-        this.supplyType = supplyType;
-        this.description = description;
+    public Supply(Depository depository, String supplyName, Boolean critical, Integer quantity) {
+        this.depository = depository;
+        this.supplyName = supplyName;
+        this.critical = critical;
+        this.quantity = quantity;
+    }
+
+    public void setDepository(Depository depository) {
+        this.depository = depository;
+    }
+
+    public void setSupplyName(String supplyName) {
+        this.supplyName = supplyName;
+    }
+
+    public void setCritical(Boolean critical) {
         this.critical = critical;
     }
 
-    public Supply(SupplyType supplyType, Depository depository, String description, Boolean critical) {
-        this.supplyType = supplyType;
-        this.depository = depository;
-        this.description = description;
-        this.critical = critical;
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 
 }

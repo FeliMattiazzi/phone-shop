@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Getter @NoArgsConstructor
@@ -13,8 +12,8 @@ public class Movement {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long movementId;
 
-    @OneToMany
-    private Set<Supply> supplies;
+    @OneToOne
+    private Supply supplies;
 
     @ManyToOne
     private Warehouse warehouse;
@@ -24,7 +23,12 @@ public class Movement {
 
     private Integer partsQuantity;
 
-    public Movement(Set<Supply> supplies, Warehouse warehouse, Lab lab, Integer partsQuantity) {
+    public Movement(Supply supplies, Integer partsQuantity) {
+        this.supplies = supplies;
+        this.partsQuantity = partsQuantity;
+    }
+
+    public Movement(Supply supplies, Warehouse warehouse, Lab lab, Integer partsQuantity) {
         this.supplies = supplies;
         this.warehouse = warehouse;
         this.lab = lab;

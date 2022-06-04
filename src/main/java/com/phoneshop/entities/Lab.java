@@ -20,17 +20,15 @@ public class Lab{
     private Warehouse warehouse;
 
     private String address;
-    private String description;
 
-    public Lab(String address, String description) {
+    public Lab(String address) {
         this.address = address;
-        this.description = description;
     }
 
-    public Lab(Set<Movement> movements, String address, String description) {
+    public Lab(Set<Movement> movements, Warehouse warehouse, String address) {
         this.movements = movements;
+        this.warehouse = warehouse;
         this.address = address;
-        this.description = description;
     }
 
 }
