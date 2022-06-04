@@ -1,15 +1,16 @@
 package com.phoneshop.services;
 
 import com.phoneshop.entities.Lab;
+import com.phoneshop.exceptions.BadRequestException;
 import com.phoneshop.exceptions.NotFoundException;
 import com.phoneshop.repositories.LabRepository;
-import org.springframework.http.ResponseEntity;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
+@Service @Slf4j
 public class LabService {
 
     private final LabRepository labRepository;
@@ -22,15 +23,32 @@ public class LabService {
         return labRepository.findAll();
     }
 
-    public Optional<Lab> findById(Long id) {
-        return labRepository.findById(id);
+    public Lab findById(Long id) throws NotFoundException {
+
+        Optional<Lab> labOpt = labRepository.findById(id);
+
+        if (labOpt.isEmpty()) {
+            throw new NotFoundException();
+        }
+
+        return labOpt.get();
+
     }
 
-    public Lab create(Lab lab) {
+    public Lab create(Lab lab) throws BadRequestException {
+        if (lab.getLabId() != null) {
+            throw new BadRequestException("Trying to create a lab with id");
+        }
+
         return labRepository.save(lab);
+
     }
 
-    public Lab update(Lab lab) throws NotFoundException {
+    public Lab update(Lab lab) throws NotFoundException, BadRequestException {
+
+        if (lab.getLabId() == null) {
+            throw new BadRequestException("Trying to update a lab without id");
+        }
 
         if (!labRepository.existsById(lab.getLabId())) {
             throw new NotFoundException("Trying to update a " +
@@ -56,7 +74,10 @@ public class LabService {
     }
 
     public void deleteAll() {
+
+        log.info("Deleting all labs...");
         labRepository.deleteAll();
+
     }
 
 }
