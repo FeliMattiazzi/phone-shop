@@ -28,4 +28,11 @@ public class ExceptionHandler {
 
     }
 
+    @org.springframework.web.bind.annotation.ExceptionHandler({UsernameAlreadyTakenException.class})
+    public ResponseEntity<ResponseMessage> handleUserAlreadyExistsException(RuntimeException e) {
+
+        return new ResponseEntity(new ResponseMessage(e.getMessage()), HttpStatus.BAD_REQUEST);
+
+    }
+
 }
