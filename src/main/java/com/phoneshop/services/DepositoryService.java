@@ -27,7 +27,7 @@ public class DepositoryService {
 
         Optional<Depository> depositoryOpt = depositoryRepository.findById(id);
 
-        if (depositoryOpt.isEmpty()) {
+        if (!depositoryOpt.isPresent()) {
             throw new NotFoundException();
         }
 

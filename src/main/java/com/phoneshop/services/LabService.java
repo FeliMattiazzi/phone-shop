@@ -27,7 +27,7 @@ public class LabService {
 
         Optional<Lab> labOpt = labRepository.findById(id);
 
-        if (labOpt.isEmpty()) {
+        if (!labOpt.isPresent()) {
             throw new NotFoundException();
         }
 
