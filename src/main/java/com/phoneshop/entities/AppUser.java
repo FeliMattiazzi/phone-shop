@@ -10,7 +10,7 @@ import javax.persistence.Id;
 
 @Entity
 @Getter @NoArgsConstructor
-public class Employee {
+public class AppUser {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long employeeId;
@@ -18,7 +18,7 @@ public class Employee {
     private String username;
     private String password;
 
-    public Employee(String username, String password) {
+    public AppUser(String username, String password) {
         this.username = username;
         this.password = password;
     }
