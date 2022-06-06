@@ -6,6 +6,7 @@ import com.phoneshop.exceptions.NotFoundException;
 import com.phoneshop.repositories.LabRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.Optional;
 @Service @Slf4j @RequiredArgsConstructor
 public class LabService {
 
+    @Autowired
     private final LabRepository labRepository;
 
     public List<Lab> findAll() {
