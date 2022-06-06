@@ -40,7 +40,7 @@ public class AppUserService {
 
     public AppUser create(AppUser appUser) throws BadRequestException, UsernameAlreadyTakenException {
 
-        if (appUser.getEmployeeId() != null)
+        if (appUser.getUserId() != null)
             throw new BadRequestException("Trying to create a user with id");
 
         if (appUserRepository.existsByUsername(appUser.getUsername()))
@@ -53,24 +53,12 @@ public class AppUserService {
 
     }
 
-    public AppUser updateUsername(AppUser appUser) throws BadRequestException, NotFoundException {
+    public AppUser update(AppUser appUser) throws BadRequestException, NotFoundException {
 
-        if (appUser.getEmployeeId() == null)
+        if (appUser.getUserId() == null)
             throw new BadRequestException("Trying to update a user without id");
 
-        if (!appUserRepository.existsById(appUser.getEmployeeId()))
-            throw new NotFoundException("Trying to update a non-existent user");
-
-        return appUserRepository.save(appUser);
-
-    }
-
-    public AppUser updatePassword(AppUser appUser) throws BadRequestException, NotFoundException {
-
-        if (appUser.getEmployeeId() == null)
-            throw new BadRequestException("Trying to update a user without id");
-
-        if (!appUserRepository.existsById(appUser.getEmployeeId()))
+        if (!appUserRepository.existsById(appUser.getUserId()))
             throw new NotFoundException("Trying to update a non-existent user");
 
         String encodedPassword = passwordEncoder.encode(appUser.getPassword());

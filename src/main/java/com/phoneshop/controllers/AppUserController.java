@@ -32,14 +32,9 @@ public class AppUserController {
         return ResponseEntity.ok(appUserService.create(appUser));
     }
 
-    @PutMapping(value = {"/change-username", "/change-username/"})
+    @PutMapping(value = {"/update-user", "/update-user/"})
     public ResponseEntity<AppUser> changeUsername(@RequestBody AppUser appUser) {
-        return ResponseEntity.ok(appUserService.updateUsername(appUser));
-    }
-
-    @PutMapping(value = {"/change-password", "/change-password/"})
-    public ResponseEntity<AppUser> changePassword(@RequestBody AppUser appUser) {
-        return ResponseEntity.ok(appUserService.updatePassword(appUser));
+        return ResponseEntity.ok(appUserService.update(appUser));
     }
 
     @DeleteMapping(value = {"/users/{id}", "/users/{id}/"})

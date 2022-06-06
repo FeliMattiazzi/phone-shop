@@ -13,7 +13,7 @@ import javax.persistence.Id;
 public class AppUser {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long employeeId;
+    private Long userId;
 
     private String username;
     private String password;
