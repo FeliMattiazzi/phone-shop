@@ -4,20 +4,17 @@ import com.phoneshop.entities.Lab;
 import com.phoneshop.exceptions.BadRequestException;
 import com.phoneshop.exceptions.NotFoundException;
 import com.phoneshop.repositories.LabRepository;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service @Slf4j
+@Service @Slf4j @RequiredArgsConstructor
 public class LabService {
 
     private final LabRepository labRepository;
-
-    public LabService(LabRepository labRepository) {
-        this.labRepository = labRepository;
-    }
 
     public List<Lab> findAll() {
         return labRepository.findAll();

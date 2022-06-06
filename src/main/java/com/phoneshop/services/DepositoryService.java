@@ -4,20 +4,17 @@ import com.phoneshop.entities.Depository;
 import com.phoneshop.exceptions.BadRequestException;
 import com.phoneshop.exceptions.NotFoundException;
 import com.phoneshop.repositories.DepositoryRepository;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service @Slf4j
+@Service @Slf4j @RequiredArgsConstructor
 public class DepositoryService {
 
     private final DepositoryRepository depositoryRepository;
-
-    public DepositoryService(DepositoryRepository depositoryRepository) {
-        this.depositoryRepository = depositoryRepository;
-    }
 
     public List<Depository> findAll() {
         return depositoryRepository.findAll();
